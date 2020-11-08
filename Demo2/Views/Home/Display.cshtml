@@ -1,0 +1,28 @@
+﻿@model System.Array
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display</title>
+</head>
+<body>
+    <div> 
+        <h1>
+            @ViewBag.mostafa
+            @ViewBag.ahmed
+            @ViewBag.alaa 
+
+            @foreach (var item in Model)
+            {
+                @item
+            }
+
+        </h1>
+    </div>
+</body>
+</html>

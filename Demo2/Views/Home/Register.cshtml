@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body>
+
+    <form action="/Home/Welcome" method="post">
+        @*person*@
+        <div>
+            <input type="number" name="Person.id" max="15" placeholder="id" />
+        </div>
+        <div>
+            <input type="text" name="Person.Fname" placeholder="please enter first name" />
+        </div>  <div>
+            <input type="text" name="Person.Lname" placeholder="please enter last name" />
+        </div>
+        <div>
+            <input type="number" name="Person.Age" min="15" max="60" placeholder="age" />
+        </div>
+        @*department*@
+        <div>
+            <input type="number" name="Department.DeptId" min="15" max="60" placeholder="department id" />
+        </div> <div>
+            <input type="text" name="Department.DeptName"  placeholder="please enter department name" />
+        </div> <div>
+                   <input type="text" name="Department.Desc" placeholder="please enter department decription" />
+        </div>
+        <input type="submit" value="Register" />
+    </form>
+
+</body>
+</html>

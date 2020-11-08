@@ -1,0 +1,30 @@
+﻿@model  Demo2.Models.Register
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome</title>
+</head>
+<body>
+    <div style="margin-left:30rem;">
+        <div>
+            <h1> Welcome User @Model.FName</h1>
+        </div>
+        <div>
+            <div><h2> Your ID is:@Model.Id            </h2></div>
+            <div><h2> Your First Name IS:  @Model.FName </h2></div>
+            <div><h2> Your Last Name IS:  @Model.LName  </h2></div>
+            <div><h2> Your department id  IS:   @ViewBag.deptid      </h2></div>
+            <div><h2> Your department Name  IS:   @ViewBag.deptname       </h2></div>
+            <div><h2> Your department description  IS:   @ViewBag.deptdesc       </h2></div>
+
+        </div>
+        <h1><a href="/home/show">go to form</a></h1>
+    </div>
+</body>
+</html>

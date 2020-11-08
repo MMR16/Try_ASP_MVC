@@ -1,0 +1,28 @@
+﻿@model Demo.ViewModel.Student_DepartmentViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Student</title>
+</head>
+<body>
+    <div style="margin-top:20rem;">
+        <div style="color:red; text-align:center;">@Model.student.Age </div>
+        <div style="color:red; text-align:center;">
+            @Model.student.FName
+        </div>
+        <div style="color:red; text-align:center;">
+            @Model.student.LName
+        </div>
+        <div style="color:red; text-align:center;">@Model.student.Salary </div>
+        <div style="color:red; text-align:center;">@Model.department.Id </div>
+        <div style="color:red; text-align:center;">@Model.department.Name </div>
+
+    </div>
+</body>
+</html>

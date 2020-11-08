@@ -1,0 +1,23 @@
+﻿@model int
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+      <h2>@(Model+4)</h2>
+        <h1>@ViewData["firstname"]</h1>
+        <h1>@ViewBag.lastname</h1>
+        <h1>ViewBag.resp</h1>
+
+    </div>
+</body>
+</html>
