@@ -1,4 +1,5 @@
-﻿@model System.Array
+﻿@*@model System.Array*@
+@model Dictionary<string,int> 
 @{
     Layout = null;
 }
@@ -16,12 +17,17 @@
             @ViewBag.mostafa
             @ViewBag.ahmed
             @ViewBag.alaa 
-
-            @foreach (var item in Model)
+            <br />
+            <br />
+            @*@foreach (var item in Model)
             {
                 @item
-            }
+            }*@
 
+            @foreach (KeyValuePair<string,int> item in Model)
+            {
+                <p>@item.Key : @item.Value </p>
+            }
         </h1>
     </div>
 </body>

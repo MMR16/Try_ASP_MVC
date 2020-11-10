@@ -57,18 +57,24 @@ namespace Demo2.Controllers
         //using array & Dictionary
         public ActionResult Display(int[] dept, Dictionary<string, int> D1)
         {
-            int mmr;
+            
             if (dept.Length >= 2)
             {
                 ViewBag.mostafa = D1["Mostafa"];
                 ViewBag.ahmed = D1["Ahmed"];
                 ViewBag.alaa = D1["Alaa"];
-                return View(dept);
+                return View(D1);
 
             }
             else
                return RedirectToAction(actionName:"show");
                // return View("~/views/home/show.cshtml");
         }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
     }
 }

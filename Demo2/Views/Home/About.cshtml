@@ -1,0 +1,62 @@
+﻿
+@{
+    Layout = null;
+    int x = 20;
+    int age = 40;
+    string[] Names = new string[] { "ahmed", "Mostafa", "Ali" };
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>About</title>
+</head>
+<body>
+    <div>
+        <h1>
+            @x +1 <br />
+            @(x+1) <br />
+        </h1>
+        <ol>
+            @for (int i = 0; i < Names.Length; i++)
+            {
+                <li>
+                    @Names[i]
+                </li>
+            }
+        </ol>
+
+        <br />
+        <table border="1" style="border-color:blue; border-style:solid;">
+            <thead>
+                <tr>
+                    <th>
+                        Names
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Names)
+                {
+                    <tr>
+                        <td>@item</td>
+                    </tr>
+                }
+        </table>
+        @if (age > 30)
+        {
+            <div>
+                <h1>The Age is Greater Than 30</h1>
+            </div>
+        }
+        else
+        {
+            <div>
+                <h1>The Age is Less Than 30</h1>
+            </div>
+        }
+    </div>
+</body>
+</html>

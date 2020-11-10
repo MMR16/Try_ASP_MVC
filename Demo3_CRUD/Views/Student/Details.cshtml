@@ -1,0 +1,37 @@
+﻿@model Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <h1>
+         ID:   @Model.Id
+        </h1><br />
+        <h1>
+         First Name:   @Model.FName
+        </h1><br />
+        <h1>
+         Last Name:   @Model.LName
+        </h1><br />
+        <h1>
+
+         Age:   @Model.Age
+        </h1><br />
+             <a class="btn btn-info" href="/">Back</a>
+    </div>
+</body>
+</html>

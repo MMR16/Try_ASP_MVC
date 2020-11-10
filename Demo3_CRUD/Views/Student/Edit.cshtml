@@ -1,0 +1,51 @@
+﻿@model Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container col-6">
+        <br />
+        <h1 class="text-center">Please Enter Member Details</h1>
+        <br />
+        @*using Post with action*@
+        <form @*action="/student/Create"*@ method="post">
+
+            <div class="form-group row">
+                <label for="Id" class="col-sm-2 col-form-label ">Id</label>
+                <input disabled value="@Model.Id" type="number" name="Id" min="1" id="Id" placeholder="Enter ID" class="col-md form-control" />
+            </div>
+
+            <div class="form-group row">
+                <label for="FName" class="col-sm-2 col-form-label ">First Name</label>
+                <input value="@Model.FName" type="text" id="FName" name="FName" placeholder="please Enter Your First Name" class="col-md form-control" />
+            </div>
+
+            <div class="form-group row">
+                <label for="LName" class="col-sm-2 col-form-label ">Last Name</label>
+                <input value="@Model.LName" type="text" id="LName" name="LName" placeholder="Please Enter Your Last Name" class="col-md form-control" />
+            </div>
+
+            <div class="form-group row">
+                <label for="Age" class="col-sm-2 col-form-label ">Age</label>
+                <input value="@Model.Age" type="number" id="Age" name="Age" min="15" max="60" placeholder="Please Enter Age" class="col-md form-control" />
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="offset-xs-3 col-xs-9">
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
