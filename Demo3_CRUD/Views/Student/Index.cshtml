@@ -38,9 +38,11 @@
                     <td>@item.FName</td>
                     <td>@item.LName</td>
                     <td>@item.Age</td>
-                    <td><a class="btn btn-secondary" href="/student/details/@item.Id">Details</a>
-                    <a class="btn btn-primary" href="/student/Edit/@item.Id">Update</a>
-                    <a class="btn btn-danger" href="/student/delete/@item.Id">Delete</a>
+                    <td>
+                        <a class="btn btn-secondary" href="/student/details/@item.Id">Details</a>
+                        <a class="btn btn-primary" href="/student/Edit/@item.Id">Update</a>
+                         <a class="btn btn-danger" href="/student/delete/@item.Id">Delete</a>
+                        @* <a class="btn btn-danger" href="/student/delete/@item.Id" onclick="return confirm(`Are You Sure`)">Delete</a>*@
                     </td>
                 </tr>
                 }

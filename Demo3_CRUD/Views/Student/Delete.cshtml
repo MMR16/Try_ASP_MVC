@@ -1,0 +1,46 @@
+﻿@model Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <br />
+        <br />
+        <br />
+        <h1>Are You Sure You Want To Delete @Model.FName </h1>
+        <br />
+        <br />
+        @*using Action name*@
+        <form @*action="/student/Delete"*@ method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <input type="submit" name="Ok" class="btn btn-danger" value="Ok" />  
+        <a class="btn btn-info" href="/">Back</a>
+        </form>
+       @* using  DeleteStd with Get*@
+        @*<a href="/student/DeleteStd/@Model.Id" class="btn btn-danger">OK</a>*@
+        <br />
+        <br />
+        <h2>The Member Details:</h2>
+        <br />
+        <h2>
+            First Name:   @Model.FName
+        </h2><br />
+        <h2>
+            Last Name:   @Model.LName
+        </h2><br />
+        <h2>
+
+            Age:   @Model.Age
+        </h2><br />
+    </div>
+</body>
+</html>
