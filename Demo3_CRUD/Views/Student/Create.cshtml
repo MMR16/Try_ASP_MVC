@@ -1,4 +1,4 @@
-﻿
+﻿@model Student 
 @{
     Layout = null;
 }
@@ -20,31 +20,12 @@
         <form @*action="/student/Create"*@ method="post">
 
             <div class="form-group row">
-                <label for="Id" class="col-sm-2 col-form-label ">Id</label>
-                <input type="number" name="Id" min="1" id="Id" placeholder="Enter ID" class="col-md form-control" />
+                @Html.LabelFor(w => w.Id, new { @class = "col-sm-2 col-form-label " })
+                @*<label for="Id" class="col-sm-2 col-form-label ">Id</label>*@
+                @Html.TextBoxFor(w => w.Id, new { min = "1", max = "20", placeholder = "Enter ID", @class = "col-md form-control", @type = "Number" })
+                @*<input type="number" name="Id" min="1" id="Id" max="20" placeholder="Enter ID" class="col-md form-control" />*@
             </div>
-
-            <div class="form-group row">
-                <label for="FName" class="col-sm-2 col-form-label ">First Name</label>
-                <input type="text" id="FName" name="FName" placeholder="please Enter Your First Name" class="col-md form-control" />
-            </div>
-
-            <div class="form-group row">
-                <label for="LName" class="col-sm-2 col-form-label ">Last Name</label>
-                <input type="text" id="LName" name="LName" placeholder="Please Enter Your Last Name" class="col-md form-control" />
-            </div>
-
-            <div class="form-group row">
-                <label for="Age" class="col-sm-2 col-form-label ">Age</label>
-                <input type="number" id="Age" name="Age" min="15" max="60" placeholder="Please Enter Age" class="col-md form-control" />
-            </div>
-            <br />
-            <div class="form-group row">
-                <div class="offset-xs-3 col-xs-9">
-                    <button type="submit" class="btn btn-primary">Add</button>
-                </div>
-            </div>
-
+            @{Html.RenderPartial("CreateUpdate");}
         </form>
     </div>
 </body>

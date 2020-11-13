@@ -1,0 +1,28 @@
+﻿@model Student
+
+<div class="form-group row">
+    @Html.LabelFor(w => w.FName, new { @class = "col-sm-2 col-form-label " })
+    @*<label for="FName" class="col-sm-2 col-form-label ">First Name</label>*@
+    @Html.TextBoxFor(w => w.FName, new { placeholder = "please Enter Your First Name", @class = "col-md form-control" })
+    @*<input type="text" id="FName" name="FName" placeholder="please Enter Your First Name" class="col-md form-control" />*@
+</div>
+
+<div class="form-group row">
+    @Html.LabelFor(w => w.LName, new { @class = "col-sm-2 col-form-label " })
+    @*<label for="LName" class="col-sm-2 col-form-label ">Last Name</label>*@
+    @Html.TextBoxFor(w => w.LName, new { placeholder = "please Enter Your Last Name", @class = "col-md form-control" })
+    @*<input type="text" id="LName" name="LName" placeholder="Please Enter Your Last Name" class="col-md form-control" />*@
+</div>
+
+<div class="form-group row">
+    @Html.LabelFor(w => w.Age, new { @class = "col-sm-2 col-form-label " })
+    @*<label for="Age" class="col-sm-2 col-form-label ">Age</label>*@
+    @Html.TextBoxFor(w => w.Age, new { placeholder = "Please Enter Age", @class = "col-md form-control", min = "15", max = "60", @type = "Number" })
+    @*<input type="number" id="Age" name="Age" min="15" max="60" placeholder="Please Enter Age" class="col-md form-control" />*@
+</div>
+<br />
+<div class="form-group row">
+    <div class="offset-xs-3 col-xs-9">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</div>

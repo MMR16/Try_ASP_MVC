@@ -12,9 +12,21 @@ using System.Web.Mvc;
 
 namespace Demo3_CRUD.Controllers
 {
+    ////////////////////////////////route attibutes MVC 5
+    //routes Controller 
+    //to go to any action with sigment start with MMR
+    //except the action using route like index to go to it we use localhost/in or localhost or localhost/f/in
+    [Route("MMR/{action}/{id?}")]  //id is optional
+  //  [Route("MMR/{action}/{id:string}")] //id is string 
+    [Route("MMR/{action}/{id:range(1,7)}")] //id -> int64 & range is 1 to 7
     public class StudentController : Controller
     {
         // GET: Student
+        //route over Action
+        [Route("",Order = 3)]
+        [Route("IN",Order=2)]
+        [Route("F/IN", Order = 1)]
+
         public ActionResult Index()
         {
             var Students = StudentRepository.GetStudents();
