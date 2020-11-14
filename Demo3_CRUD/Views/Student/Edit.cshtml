@@ -1,35 +1,27 @@
 ﻿@model Student
-@{
-    Layout = null;
-}
+@{ViewBag.title = "Update";}
 
-<!DOCTYPE html>
+<div class="container col-6">
+    <br />
+    <h1 class="text-center">Please Enter Member Details</h1>
+    <br />
+    @*using Post with action*@
+    @* <form action="/student/Create"* method="post">*@
+    @using (Html.BeginForm())
+    {
+        <div class="form-group row">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-    <div class="container col-6">
-        <br />
-        <h1 class="text-center">Please Enter Member Details</h1>
-        <br />
-        @*using Post with action*@
-        <form @*action="/student/Create"*@ method="post">
-
-            <div class="form-group row">
-                
-                @Html.LabelFor(q => q.Id, new { @class = "col-sm-2 col-form-label " })
-                @*<label for="Id" class="col-sm-2 col-form-label ">Id</label>*@
-                @Html.TextBoxFor(w => w.Id, new { placeholder = "Enter ID", @class = "col-md form-control", min = "1", max = "20", @readonly = "readonly" })
-                @*<input readonly value="@Model.Id" type="number" name="Id" min="1" id="Id" placeholder="Enter ID" class="col-md form-control" />*@
-            </div>
+            @Html.LabelFor(q => q.Id, new { @class = "col-sm-2 col-form-label " })
+            @Html.TextBoxFor(w => w.Id, new { placeholder = "Enter ID", @class = "col-md form-control", min = "1", max = "20", @readonly = "readonly" })
             @Html.Partial("CreateUpdate")
-           @*best for preformance*@
-@*@{Html.RenderPartial("CreateUpdate"); }*@
-        </form>
-    </div>
-</body>
-</html>
+        </div>
+
+
+    }
+
+    @*<label for="Id" class="col-sm-2 col-form-label ">Id</label>*@
+    @*<input readonly value="@Model.Id" type="number" name="Id" min="1" id="Id" placeholder="Enter ID" class="col-md form-control" />*@
+    @*best for preformance*@
+    @*@{Html.RenderPartial("CreateUpdate"); }*@
+    @*</form>*@
+</div>

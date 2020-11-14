@@ -1,17 +1,6 @@
 ﻿@model IEnumerable<Student>
-@{
-    Layout = null;
-}
+@{ViewBag.title = "Index";}
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
     <br />
     <br />
     <div>
@@ -22,10 +11,10 @@
         <table class="table table-hover  table-bordered border-primary text-center">
             <thead style="color:blue;">
                 <tr>
-                    <th>id</th>
-                    <th>first name</th>
-                    <th>last name</th>
-                    <th>Age</th>
+                    <th>@Html.DisplayNameFor(w=>w.Id)</th>
+                    <th>@Html.DisplayNameFor(q=>q.FName)</th>
+                    <th>@Html.DisplayNameFor(e=>e.LName)</th>
+                    <th>@Html.DisplayNameFor(a=>a.Age)</th>
                     <th>Operations</th>
 
                 </tr>
@@ -34,10 +23,10 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.Id</td>
-                        <td>@item.FName</td>
-                        <td>@item.LName</td>
-                        <td>@item.Age</td>
+                        <td>@Html.DisplayFor(w=>item.Id)</td>
+                        <td>@Html.DisplayFor(q=>item.FName)</td>
+                        <td>@Html.DisplayFor(e=>item.LName)</td>
+                        <td>@Html.DisplayFor(q=>item.Age)</td>
                         <td>
                             @Html.ActionLink("Details","Details","Student",new {id=item.Id },new {@class="btn btn-secondary" })
                             @*<a class="btn btn-secondary" href="/student/details/@item.Id">Details</a>*@
@@ -49,6 +38,11 @@
                         </td>
                     </tr>
                 }
+            <tr>
+                <td>Family Numbers</td>
+                <td colspan="3">@Model.Count()</td>
+
+            </tr>
             </tbody>
         </table>
 
@@ -63,6 +57,3 @@
 
         @*<a href="/student/Create" class="btn btn-secondary" >Add New Member</a>*@
     </div>
-
-</body>
-</html>

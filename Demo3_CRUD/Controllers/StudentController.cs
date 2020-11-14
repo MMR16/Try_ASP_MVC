@@ -16,16 +16,16 @@ namespace Demo3_CRUD.Controllers
     //routes Controller 
     //to go to any action with sigment start with MMR
     //except the action using route like index to go to it we use localhost/in or localhost or localhost/f/in
-    [Route("MMR/{action}/{id?}")]  //id is optional
+    //[Route("MMR/{action}/{id?}")]  //id is optional
   //  [Route("MMR/{action}/{id:string}")] //id is string 
-    [Route("MMR/{action}/{id:range(1,7)}")] //id -> int64 & range is 1 to 7
+    //[Route("MMR/{action}/{id:range(1,7)}")] //id -> int64 & range is 1 to 7
     public class StudentController : Controller
     {
         // GET: Student
         //route over Action
-        [Route("",Order = 3)]
-        [Route("IN",Order=2)]
-        [Route("F/IN", Order = 1)]
+        //[Route("",Order = 3)]
+        //[Route("IN",Order=2)]
+        //[Route("F/IN", Order = 1)]
 
         public ActionResult Index()
         {
@@ -42,6 +42,14 @@ namespace Demo3_CRUD.Controllers
         [HttpPost]
         public ActionResult Create(Student student)
         {
+            if (!ModelState.IsValid)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "id must have avalue");
+
+          else  if (student.Id==StudentRepository.GetStudentDetails(student.Id).Id)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Ambiguous,"Please Enter Non Duplicated ID");
+            }
+
             StudentRepository.AddStudent(student);
             return RedirectToAction(nameof(Index)); //nameof return the name of any thing as string
                                                     //return RedirectToAction("Index");

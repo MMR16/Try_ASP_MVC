@@ -1,32 +1,17 @@
-﻿@model Student 
-@{
-    Layout = null;
-}
+﻿@model Student
+@{ViewBag.title = "Add member";}
 
-<!DOCTYPE html>
+<div class="container col-6">
+    <br />
+    <h1 class="text-center">Please Enter Member Details</h1>
+    <br />
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        <div class="form-group row">
+            @Html.LabelFor(w => w.Id, new { @class = "col-sm-2 col-form-label " })
+            @Html.TextBoxFor(w => w.Id, new { min = "1", max = "20", placeholder = "Enter ID", @class = "col-md form-control", @type = "Number" })
+        </div>
+        Html.RenderPartial("CreateUpdate");
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-    <div class="container col-6">
-        <br />
-        <h1 class="text-center">Please Enter Member Details</h1>
-        <br />
-        @*using Post with action*@
-        <form @*action="/student/Create"*@ method="post">
-
-            <div class="form-group row">
-                @Html.LabelFor(w => w.Id, new { @class = "col-sm-2 col-form-label " })
-                @*<label for="Id" class="col-sm-2 col-form-label ">Id</label>*@
-                @Html.TextBoxFor(w => w.Id, new { min = "1", max = "20", placeholder = "Enter ID", @class = "col-md form-control", @type = "Number" })
-                @*<input type="number" name="Id" min="1" id="Id" max="20" placeholder="Enter ID" class="col-md form-control" />*@
-            </div>
-            @{Html.RenderPartial("CreateUpdate");}
-        </form>
-    </div>
-</body>
-</html>
+    }
+</div>
