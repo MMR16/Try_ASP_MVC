@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index</title>
+</head>
+<body>
+    <div>
+        <h2>
+
+            @ViewBag.Name
+            @ViewBag.Pass
+            <br />
+            @Html.ActionLink("Ordinary (ViewBag)", "Details", new { Name = ViewBag.Name, PassWord = ViewBag.Pass })
+        <br />
+            @Html.ActionLink("Cookies", "Cookie")
+        <br />
+            @Html.ActionLink("Cookies Another Action", "Cookies")
+        <br />
+            @Html.ActionLink("Session", "Session1")
+        <br />
+        @Html.ActionLink("session NO2","session2")
+        </h2>
+    </div>
+</body>
+</html>

@@ -214,11 +214,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Cookies_Sessions.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\People.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\StudentRepository.cs" />
@@ -252,6 +254,12 @@
     <Content Include="Views\Student\CreateUpdate.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_Viewstart.cshtml" />
+    <Content Include="Views\Cookies_Sessions\index.cshtml" />
+    <Content Include="Views\Cookies_Sessions\Details.cshtml" />
+    <Content Include="Views\Cookies_Sessions\Cookie.cshtml" />
+    <Content Include="Views\Cookies_Sessions\Cookies.cshtml" />
+    <Content Include="Views\Cookies_Sessions\Session1.cshtml" />
+    <Content Include="Views\Cookies_Sessions\Session2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

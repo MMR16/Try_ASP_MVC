@@ -1,0 +1,32 @@
+﻿@model People
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Session2</title>
+</head>
+<body>
+    <div> 
+        <h1>
+            Session 2
+            <br />
+            <br />
+            @ViewBag.Id
+            <br />
+            <br />
+            @Model.Id
+            @Model.Fname
+            @Model.LName
+            <br />
+            Session ID= @ViewBag.ID
+            <br />
+            Session timeOut=@ViewBag.Time Minute
+        </h1>
+    </div>
+</body>
+</html>

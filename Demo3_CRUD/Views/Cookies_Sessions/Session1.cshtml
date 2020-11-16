@@ -1,0 +1,28 @@
+﻿@model People
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Session</title>
+</head>
+<body>
+    <div> 
+        <h1>
+            Sessions
+            <br />
+            @Model.Id
+            @Model.Fname
+            @Model.LName
+        </h1>
+        <br />
+        <br />
+        @ViewBag.FirstName
+        @ViewBag.PassWord
+    </div>
+</body>
+</html>

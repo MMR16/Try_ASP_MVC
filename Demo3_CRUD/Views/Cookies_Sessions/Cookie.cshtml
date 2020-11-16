@@ -1,0 +1,33 @@
+﻿@model HttpCookie
+@{
+    
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cookie</title>
+</head>
+<body>
+    <div>
+        <h1>
+            Using Cookies & Model
+            <br />
+            @Model.Values["Name"]
+            @Model.Values["Pass"]
+        </h1>
+    </div>
+    <br />
+    <div>
+        <h2>
+            Using Cookies & tempdata
+            <br />
+            @TempData["PP"]
+            @TempData["NN"]
+        </h2>
+    </div>
+</body>
+</html>
