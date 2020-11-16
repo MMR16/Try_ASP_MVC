@@ -12,7 +12,9 @@
         <div class="form-group row">
 
             @Html.LabelFor(q => q.Id, new { @class = "col-sm-2 col-form-label " })
-            @Html.TextBoxFor(w => w.Id, new { placeholder = "Enter ID", @class = "col-md form-control", min = "1", max = "20", @readonly = "readonly" })
+           @* @Html.TextBoxFor(w => w.Id, new { placeholder = "Enter ID", @class = "col-md form-control", min = "1", max = "20", @readonly = "readonly" })*@
+           @Html.EditorFor(x=>x.Id,additionalViewData:new {htmlattributes=new { placeholder = "Enter ID", @class = "col-md form-control", @readonly = "true" } })
+            @Html.ValidationMessageFor(w=>w.Id,"",new { @class = "col-sm-6  text-danger" })
             @Html.Partial("CreateUpdate")
         </div>
 

@@ -8,10 +8,10 @@ namespace Demo3_CRUD.Repository
     {
         static List<Student> students = new List<Student>()
         {
-            new Student(){Id=1,FName="Mostafa",LName="Mahmoud",Age=26},
-            new Student(){Id=2,FName="Alaa",LName="Mahmoud",Age=30},
-            new Student(){Id=3,FName="Ahmed",LName="Mahmoud",Age=34},
-            new Student(){Id=4,FName="Asmaa",LName="Mahmoud",Age=24}
+            new Student(){Id=1,FName="Mostafa",LName="Mahmoud",Age=26,Email="mmr16rady@yahoo.com"},
+            new Student(){Id=2,FName="Alaa",LName="Mahmoud",Age=30,Email="mmnear16@gmail.com"},
+            new Student(){Id=3,FName="Ahmed",LName="Mahmoud",Age=34,Email="abc@g.com"},
+            new Student(){Id=4,FName="Asmaa",LName="Mahmoud",Age=24,Email="efg@e.net"}
 
         };
 
@@ -26,7 +26,7 @@ namespace Demo3_CRUD.Repository
 
         public static Student GetStudentDetails(int id)
         {
-            var std = students.SingleOrDefault(q => q.Id == id);
+            var std = students.FirstOrDefault(q => q.Id == id);
             return std;
         }
 
@@ -45,6 +45,7 @@ namespace Demo3_CRUD.Repository
                 Std.FName = student.FName;
                 Std.LName = student.LName;
                 Std.Age = student.Age;
+                Std.Email = student.Email;
             }
         }
     }

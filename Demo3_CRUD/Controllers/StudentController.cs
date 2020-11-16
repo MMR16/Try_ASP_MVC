@@ -17,7 +17,7 @@ namespace Demo3_CRUD.Controllers
     //to go to any action with sigment start with MMR
     //except the action using route like index to go to it we use localhost/in or localhost or localhost/f/in
     //[Route("MMR/{action}/{id?}")]  //id is optional
-  //  [Route("MMR/{action}/{id:string}")] //id is string 
+    //  [Route("MMR/{action}/{id:string}")] //id is string 
     //[Route("MMR/{action}/{id:range(1,7)}")] //id -> int64 & range is 1 to 7
     public class StudentController : Controller
     {
@@ -42,18 +42,16 @@ namespace Demo3_CRUD.Controllers
         [HttpPost]
         public ActionResult Create(Student student)
         {
-            if (!ModelState.IsValid)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "id must have avalue");
-
-          else  if (student.Id==StudentRepository.GetStudentDetails(student.Id).Id)
+            //  if (!ModelState.IsValid)
+            //      return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Enter Valid Data");
+            if (ModelState.IsValid)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.Ambiguous,"Please Enter Non Duplicated ID");
+                    StudentRepository.AddStudent(student);
+                    return RedirectToAction(nameof(Index)); //nameof return the name of any thing as string
             }
-
-            StudentRepository.AddStudent(student);
-            return RedirectToAction(nameof(Index)); //nameof return the name of any thing as string
-                                                    //return RedirectToAction("Index");
-                                                    // return View("Index",StudentRepository.GetStudents());
+            //return RedirectToAction("Index");
+            // return View("Index",StudentRepository.GetStudents());
+            return View(student);
         }
 
         public ActionResult Details(int? id)
@@ -70,7 +68,7 @@ namespace Demo3_CRUD.Controllers
         public ActionResult Edit(int? id)
         {
             if (id is null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest,"Id Must Have Avalue");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Id Must Have Avalue");
 
             else if (StudentRepository.GetStudents().Contains(StudentRepository.GetStudentDetails(id.Value)))
             {
@@ -85,8 +83,12 @@ namespace Demo3_CRUD.Controllers
         [HttpPost] //Action Selector
         public ActionResult Edit(Student Std)
         {
-            StudentRepository.UpdateStudent(Std);
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                StudentRepository.UpdateStudent(Std);
+                return RedirectToAction(nameof(Index));
+            }
+            else return View(Std);
         }
 
         [HttpGet]
@@ -105,7 +107,7 @@ namespace Demo3_CRUD.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound, "The Member Not Found");
         }
 
-       // Delete View With Get view
+        // Delete View With Get view
         public ActionResult DeleteStd(int? id)
         {
             if (id is null)
@@ -134,5 +136,17 @@ namespace Demo3_CRUD.Controllers
             else
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound, "The Member Not Found");
         }
+        public ActionResult CheckID(int Id,string FName)
+        {
+            //var std=StudentRepository.GetStudents().FirstOrDefault(a => a.Id == Id);
+            //     if (std is null)
+            //     {
+            //         return Json(true, JsonRequestBehavior.AllowGet);
+            //     }
+            //     return Json(false, JsonRequestBehavior.AllowGet);
+
+            return Json(!(StudentRepository.GetStudents().Any(ww => ww.Id== Id) && StudentRepository.GetStudents().Any(ww => ww.FName == FName)), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

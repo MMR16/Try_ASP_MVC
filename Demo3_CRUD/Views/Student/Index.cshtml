@@ -7,14 +7,16 @@
         <h1 class="font-weight-bolder text-center">The Family Details</h1>
     </div>
     <br />
-    <div class="container">
+    <div class="container-md">
         <table class="table table-hover  table-bordered border-primary text-center">
             <thead style="color:blue;">
                 <tr>
-                    <th>@Html.DisplayNameFor(w=>w.Id)</th>
-                    <th>@Html.DisplayNameFor(q=>q.FName)</th>
-                    <th>@Html.DisplayNameFor(e=>e.LName)</th>
-                    <th>@Html.DisplayNameFor(a=>a.Age)</th>
+                    <th>@Html.DisplayNameFor(w => w.Id)</th>
+                    <th>@Html.DisplayNameFor(q => q.FName)</th>
+                    <th>@Html.DisplayNameFor(e => e.LName)</th>
+                    <th>@Html.DisplayNameFor(a => a.Age)</th>
+                    <th>@Html.DisplayNameFor(a => a.Email)</th>
+
                     <th>Operations</th>
 
                 </tr>
@@ -22,21 +24,23 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@Html.DisplayFor(w=>item.Id)</td>
-                        <td>@Html.DisplayFor(q=>item.FName)</td>
-                        <td>@Html.DisplayFor(e=>item.LName)</td>
-                        <td>@Html.DisplayFor(q=>item.Age)</td>
-                        <td>
-                            @Html.ActionLink("Details","Details","Student",new {id=item.Id },new {@class="btn btn-secondary" })
-                            @*<a class="btn btn-secondary" href="/student/details/@item.Id">Details</a>*@
-                            @Html.ActionLink("Update","Edit","Student",new {Id=item.Id},new {@class="btn btn-primary"})
-                            @*<a class="btn btn-primary" href="/student/Edit/@item.Id">Update</a>*@
-                            @Html.ActionLink("Delete","Delete","Student",new {id=item.Id},new {@class="btn btn-danger"})
-                            @*<a class="btn btn-danger" href="/student/delete/@item.Id">Delete</a>*@
-                            @* <a class="btn btn-danger" href="/student/delete/@item.Id" onclick="return confirm(`Are You Sure`)">Delete</a>*@
-                        </td>
-                    </tr>
+                <tr>
+                    <td>@Html.DisplayFor(w => item.Id)</td>
+                    <td>@Html.DisplayFor(q => item.FName)</td>
+                    <td>@Html.DisplayFor(e => item.LName)</td>
+                    <td>@Html.DisplayFor(q => item.Age)</td>
+                    <td>@Html.DisplayFor(q => item.Email)</td>
+
+                    <td>
+                        @Html.ActionLink("Details", "Details", "Student", new { id = item.Id }, new { @class = "btn btn-secondary" })
+                        @*<a class="btn btn-secondary" href="/student/details/@item.Id">Details</a>*@
+                        @Html.ActionLink("Update", "Edit", "Student", new { Id = item.Id }, new { @class = "btn btn-primary" })
+                        @*<a class="btn btn-primary" href="/student/Edit/@item.Id">Update</a>*@
+                        @Html.ActionLink("Delete", "Delete", "Student", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        @*<a class="btn btn-danger" href="/student/delete/@item.Id">Delete</a>*@
+                        @* <a class="btn btn-danger" href="/student/delete/@item.Id" onclick="return confirm(`Are You Sure`)">Delete</a>*@
+                    </td>
+                </tr>
                 }
             <tr>
                 <td>Family Numbers</td>
@@ -51,7 +55,7 @@
         @Html.ActionLink("Add New Member", "Create", "Student",null, new
    {
        @class = "btn btn-secondary",
-       target = "_blank", //open link in new tab
+       //target = "_blank", //open link in new tab
        onclick = "return confirm(`Are You Sure`)" //java script
    })
 

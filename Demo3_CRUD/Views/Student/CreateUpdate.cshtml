@@ -2,27 +2,52 @@
 
 <div class="form-group row">
     @Html.LabelFor(w => w.FName, new { @class = "col-sm-2 col-form-label " })
-    @*<label for="FName" class="col-sm-2 col-form-label ">First Name</label>*@
-    @Html.TextBoxFor(w => w.FName, new { placeholder = "please Enter Your First Name", @class = "col-md form-control" })
-    @*<input type="text" id="FName" name="FName" placeholder="please Enter Your First Name" class="col-md form-control" />*@
+    @*@Html.TextBoxFor(w => w.FName, new { placeholder = "Please Enter Your First Name", @class = "col-md form-control" })*@
+    @Html.EditorFor(e => e.FName, additionalViewData: new { htmlAttributes = new { placeholder = "Please Enter Your First Name", @class = "col-md form-control" } })
+    @Html.ValidationMessageFor(e => e.FName, "", new { @class = "col-sm-6  text-danger" })
 </div>
 
 <div class="form-group row">
     @Html.LabelFor(w => w.LName, new { @class = "col-sm-2 col-form-label " })
-    @*<label for="LName" class="col-sm-2 col-form-label ">Last Name</label>*@
-    @Html.TextBoxFor(w => w.LName, new { placeholder = "please Enter Your Last Name", @class = "col-md form-control" })
-    @*<input type="text" id="LName" name="LName" placeholder="Please Enter Your Last Name" class="col-md form-control" />*@
+    @*@Html.TextBoxFor(w => w.LName, new { placeholder = "Please Enter Your Last Name", @class = "col-md form-control" })*@
+    @Html.EditorFor(q => q.LName, additionalViewData: new { htmlAttributes = new { placeholder = "Please Enter Your Last Name", @class = "col-md form-control" } })
+    @Html.ValidationMessageFor(e => e.LName, "", new { @class = "col-sm-6  text-danger" })
 </div>
 
 <div class="form-group row">
     @Html.LabelFor(w => w.Age, new { @class = "col-sm-2 col-form-label " })
-    @*<label for="Age" class="col-sm-2 col-form-label ">Age</label>*@
-    @Html.TextBoxFor(w => w.Age, new { placeholder = "Please Enter Age", @class = "col-md form-control", min = "15", max = "60", @type = "Number" })
-    @*<input type="number" id="Age" name="Age" min="15" max="60" placeholder="Please Enter Age" class="col-md form-control" />*@
+    @*@Html.TextBoxFor(w => w.Age, new { placeholder = "Please Enter Your Age", @class = "col-md form-control" })*@
+    @Html.EditorFor(r => r.Age, additionalViewData: new { htmlAttributes = new { placeholder = "Please Enter Your Id", @class = "col-md form-control" } })
+    @Html.ValidationMessageFor(e => e.Age, "", new { @class = "col-sm-6  text-danger" })
+</div>
+<div class="form-group row">
+    @Html.LabelFor(w => w.Email, new { @class = "col-sm-2 col-form-label " })
+    @*@Html.TextBoxFor(w => w.Email, new { placeholder = "Please Enter Your Email Adress", @class = "col-md form-control" })*@
+    @Html.EditorFor(t => t.Email, additionalViewData: new { htmlattributes = new { placeholder = "Please Enter Your Email Adress", @class = "col-md form-control" } })
+    @Html.ValidationMessageFor(e => e.Email, "", new { @class = "col-sm-6  text-danger" })
+</div>
+<div class="form-group row">
+    @Html.LabelFor(w => w.PassWord, new { @class = "col-sm-2 col-form-label " })
+    @Html.EditorFor(t => t.PassWord, additionalViewData: new { htmlattributes = new { placeholder = "Please Enter Your Password", @class = "col-md form-control" } })
+    @Html.ValidationMessageFor(e => e.PassWord, "", new { @class = "col-sm-6  text-danger" })
+</div>
+
+<div class="form-group row">
+    @Html.LabelFor(w => w.CPassWord, new { @class = "col-sm-2 col-form-label " })
+    @Html.EditorFor(t => t.CPassWord, additionalViewData: new { htmlattributes = new { placeholder = "Please Confirm PassWord", @class = "col-md form-control" } })
+    @Html.ValidationMessageFor(e => e.CPassWord, "", new { @class = "col-sm-6  text-danger" })
 </div>
 <br />
 <div class="form-group row">
     <div class="offset-xs-3 col-xs-9">
         <button type="submit" class="btn btn-primary">Add</button>
+        <a class="btn btn-info" style="margin-left:unset;" href="/">Back</a>
     </div>
+   
 </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+
